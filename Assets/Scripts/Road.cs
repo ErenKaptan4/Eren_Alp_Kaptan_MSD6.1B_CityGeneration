@@ -39,16 +39,19 @@ public class Road : MonoBehaviour
             3,7,6,}
     };
 
+    
+
     // Start is called before the first frame update
     void Start()
     {
-
         CreateCube();
 
     }
 
+
     public void CreateCube()
     {
+        
         cubeMaterialsList.Add(Resources.Load<Material>("Materials/Road"));
 
         cubeMaterialsList.Add(Resources.Load<Material>("Materials/RoadTexture"));
