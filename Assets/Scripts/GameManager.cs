@@ -26,11 +26,13 @@ public class GameManager : MonoBehaviour
     public GameObject car;
 
     //ChosenLocations
-    List<Vector3> locations = new List<Vector3>(4);
+    List<Vector3> locations = new List<Vector3>(5);
+    List<Vector3> locations2 = new List<Vector3>(5);
 
 
     //House
     public GameObject house1GameObject;
+    public GameObject house2GameObject;
 
 
 
@@ -48,7 +50,8 @@ public class GameManager : MonoBehaviour
         ////Ground();
         SpawnCar();
         ListMaker();
-        HouseGenerator(locations);
+        ListMaker2();
+        HouseGenerator(locations, locations2);
         
     }
 
@@ -67,13 +70,29 @@ public class GameManager : MonoBehaviour
         locations.Add(new Vector3(125, 8, 90));
         locations.Add(new Vector3(200, 8, 90));
     }
-    public void HouseGenerator(List<Vector3> loc)
+    public void ListMaker2()
+    {
+        locations2.Add(new Vector3(-33, 8, 125));
+        locations2.Add(new Vector3(-10, 8, 100));
+        locations2.Add(new Vector3(-33, 8, 75));
+        locations2.Add(new Vector3(-10, 8, 50));
+        locations2.Add(new Vector3(-33, 8, 25));
+        locations2.Add(new Vector3(-10, 8, 0));
+        locations2.Add(new Vector3(-33, 8, -25));
+        locations2.Add(new Vector3(-10, 8, -50));
+        locations2.Add(new Vector3(-33, 8, -75));
+    }
+
+    public void HouseGenerator(List<Vector3> loc, List<Vector3> loc2)
     {
         loc.Shuffle();
+        loc2.Shuffle();
         for (int i = 0; i < 5; i++)
         {
             Instantiate(house1GameObject, loc[i], Quaternion.identity);
+            Instantiate(house2GameObject, loc2[i], Quaternion.identity);
         }
+
     }
 
 
@@ -145,7 +164,7 @@ public class GameManager : MonoBehaviour
         road5CityGameObject.name = "Road5";
         road5CityGameObject.transform.position = new Vector3(-22, 4, 31);
         road5CityGameObject.transform.rotation = new Quaternion(0, 0, 0, 1);
-        road5CityGameObject.transform.localScale = new Vector3(5, 1, 100);
+        road5CityGameObject.transform.localScale = new Vector3(5, 1, 125);
         road5CityGameObject.AddComponent<CityRoad>();
     }
 
