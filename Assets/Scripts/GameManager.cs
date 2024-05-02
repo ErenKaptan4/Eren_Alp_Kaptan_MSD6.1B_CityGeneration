@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Security.Cryptography;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -7,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     //Ground
     GameObject groundGameObject;
+
     //Roads
     GameObject road1GameObject;
     GameObject road2GameObject;
@@ -19,7 +22,17 @@ public class GameManager : MonoBehaviour
     GameObject roadCorner2GameObject;
     GameObject roadCorner3GameObject;
 
+    //Car
     public GameObject car;
+
+    //ChosenLocations
+    List<Vector3> locations = new List<Vector3>(4);
+
+
+    //House
+    public GameObject house1GameObject;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -32,16 +45,38 @@ public class GameManager : MonoBehaviour
         RoadCorner1();
         RoadCorner2();
         RoadCorner3();
-        //Ground();
+        ////Ground();
         SpawnCar();
+        ListMaker();
+        HouseGenerator(locations);
         
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ListMaker()
     {
-        
+        locations.Add(new Vector3(125, 8, 45));
+        locations.Add(new Vector3(125, 8, 70));
+        locations.Add(new Vector3(150, 8, 95));
+        locations.Add(new Vector3(175, 8, 95));
+        locations.Add(new Vector3(200, 8, 70));
+        locations.Add(new Vector3(200, 8, 45));
+        locations.Add(new Vector3(150, 8, 45));
+        locations.Add(new Vector3(150, 8, 70));
+        locations.Add(new Vector3(175, 8, 70));
+        locations.Add(new Vector3(175, 8, 45));
+        locations.Add(new Vector3(125, 8, 90));
+        locations.Add(new Vector3(200, 8, 90));
     }
+    public void HouseGenerator(List<Vector3> loc)
+    {
+        loc.Shuffle();
+        for (int i = 0; i < 5; i++)
+        {
+            Instantiate(house1GameObject, loc[i], Quaternion.identity);
+        }
+    }
+
+
 
     void SpawnCar()
     {
@@ -54,6 +89,8 @@ public class GameManager : MonoBehaviour
         else { Instantiate(car, new Vector3(185, 5, 30), Quaternion.identity); }
         
     }
+
+
     public void Ground()
     {
         groundGameObject = new GameObject();
@@ -62,7 +99,6 @@ public class GameManager : MonoBehaviour
         groundGameObject.transform.rotation = new Quaternion(0, 0, 0, 1);
         groundGameObject.transform.localScale = new Vector3(500, 1, 500);
         groundGameObject.AddComponent<Ground>();
-        groundGameObject.AddComponent<BoxCollider>();
     }
 
 
