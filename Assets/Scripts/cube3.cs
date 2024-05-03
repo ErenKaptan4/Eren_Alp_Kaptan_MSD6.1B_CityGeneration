@@ -48,7 +48,7 @@ public class cube3 : MonoBehaviour
 
     public void CreateCube()
     {
-        cubeMaterialsList.Add(Resources.Load<Material>("Materials/HouseTexture"));
+        cubeMaterialsList.Add(Resources.Load<Material>("Materials/HouseTexture2"));
 
         cubeMaterialsList.Add(Resources.Load<Material>("Materials/Roof"));
 
