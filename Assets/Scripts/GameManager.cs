@@ -8,7 +8,7 @@ using static UnityEngine.GraphicsBuffer;
 public class GameManager : MonoBehaviour
 {
     //Ground
-    GameObject groundGameObject;
+    public GameObject groundGameObject;
 
     //Roads
     GameObject road1GameObject;
@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         RoadCorner1();
         RoadCorner2();
         RoadCorner3();
-        ////Ground();
+        Ground();
         SpawnCar();
         ListMaker();
         ListMaker2();
@@ -112,12 +112,7 @@ public class GameManager : MonoBehaviour
 
     public void Ground()
     {
-        groundGameObject = new GameObject();
-        groundGameObject.name = "Ground";
-        groundGameObject.transform.position = new Vector3(0, 3.99f, 0);
-        groundGameObject.transform.rotation = new Quaternion(0, 0, 0, 1);
-        groundGameObject.transform.localScale = new Vector3(500, 1, 500);
-        groundGameObject.AddComponent<Ground>();
+        Instantiate(groundGameObject, new Vector3(0, 3.99f, 0), Quaternion.identity);
     }
 
 

@@ -217,6 +217,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1358797074
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1358797075}
+  - component: {fileID: 1358797076}
+  m_Layer: 8
+  m_Name: WindZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1358797075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358797074}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2107438339}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!182 &1358797076
+WindZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358797074}
+  m_Enabled: 1
+  m_Mode: 0
+  m_Radius: 20
+  m_WindMain: 1
+  m_WindTurbulence: 1
+  m_WindPulseMagnitude: 0.5
+  m_WindPulseFrequency: 0.01
 --- !u!1 &1950284332
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1950284332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 400, y: 300, z: -400}
+  m_LocalPosition: {x: 200, y: 300, z: -30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -313,7 +359,7 @@ GameObject:
   - component: {fileID: 2107438338}
   - component: {fileID: 2107438337}
   - component: {fileID: 2107438340}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -376,7 +422,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1358797075}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -393,11 +440,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRandomHeightRange: 0
-  maxRandomHeightRange: 0.025
+  maxRandomHeightRange: 0.01
   flattenTerrain: 0
   perlinNoise: 1
-  perlinNoiseWidthScale: 0.01
-  perlinNoiseHeightScale: 0.02
+  perlinNoiseWidthScale: 0.009
+  perlinNoiseHeightScale: 0.009
   terrainTextureData:
   - terrainTexture: {fileID: 2800000, guid: e18ae12a8286a594bae0eb036ce9bc12, type: 3}
     tileSize: {x: 20, y: 20}
@@ -417,3 +464,20 @@ MonoBehaviour:
     maxHeight: 1
   addTerrainTexture: 1
   terrainTextureBlendOffset: 0.1
+  treeData:
+  - treeMesh: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
+    minHeight: 0.4
+    maxHeight: 0.6
+  - treeMesh: {fileID: 100016, guid: 469edab27ab6d004d84af2c4a851bd7f, type: 3}
+    minHeight: 0.4
+    maxHeight: 0.6
+  - treeMesh: {fileID: 100004, guid: d027af1092f6b434090f040565e7e656, type: 3}
+    minHeight: 0.4
+    maxHeight: 0.6
+  maxTrees: 8000
+  treeSpacing: 10
+  addTrees: 1
+  terrainLayerIndex: 8
+  water: {fileID: 100006, guid: 843740dbe549a4a6ba9556d1b80001f5, type: 3}
+  waterHeight: 0.25
+  cloud: {fileID: 112559038464223969, guid: 7b19a37d62f73f440b8a4aab387c29d3, type: 3}
