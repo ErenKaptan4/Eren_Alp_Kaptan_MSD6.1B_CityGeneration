@@ -77,6 +77,7 @@ public class GenerateRandomHeight : MonoBehaviour
         AddTrees();
         AddWater();
         AddCloud();
+        //AddFog();
 
     }
 
@@ -292,7 +293,15 @@ public class GenerateRandomHeight : MonoBehaviour
 
     public void AddCloud()
     {
-        Instantiate(cloud, new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(cloud, new Vector3(600, 600, 400), Quaternion.identity);
+    }
+
+    public void AddFog()
+    {
+        RenderSettings.fog = true;
+        RenderSettings.fogMode = FogMode.Linear;
+        RenderSettings.fogDensity = 0.1f;
+        RenderSettings.fogEndDistance = 1000.0f;
     }
 
 
