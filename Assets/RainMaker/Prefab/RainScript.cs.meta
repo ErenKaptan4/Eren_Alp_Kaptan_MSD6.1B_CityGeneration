@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 6ff5b1f04dece7440b6f0886ee13f147
+labels:
+- Weather
+- Rain
+- Light
+- Mist
+- Sound
+- Looping
+- Wind
+- Seamless
+- Fade
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Camera: {instanceID: 0}
+  - RainSoundLight: {instanceID: 0}
+  - RainSoundMedium: {instanceID: 0}
+  - RainSoundHeavy: {instanceID: 0}
+  - RainSoundAudioMixer: {instanceID: 0}
+  - RainFallParticleSystem: {instanceID: 0}
+  - RainExplosionParticleSystem: {instanceID: 0}
+  - RainMistParticleSystem: {instanceID: 0}
+  - WindSound: {instanceID: 0}
+  - WindZone: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
