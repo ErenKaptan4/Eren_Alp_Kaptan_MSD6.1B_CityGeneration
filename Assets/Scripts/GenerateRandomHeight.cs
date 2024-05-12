@@ -58,6 +58,9 @@ public class GenerateRandomHeight : MonoBehaviour
     //CLOUD
     [Header("Cloud")][SerializeField] private GameObject cloud;
 
+    //RAIN
+    [Header("Rain")][SerializeField] private GameObject rain;
+
     //PLAYER
     [Header("Player")][SerializeField] private GameObject player;
     List<Vector3> locations = new List<Vector3>()
@@ -84,6 +87,7 @@ public class GenerateRandomHeight : MonoBehaviour
         AddTrees();
         AddWater();
         AddCloud();
+        AddRain();
         //MovePlayer();
 
     }
@@ -302,6 +306,13 @@ public class GenerateRandomHeight : MonoBehaviour
     {
         Instantiate(cloud, new Vector3(600, 600, 400), Quaternion.identity);
     }
+
+    public void AddRain()
+    {
+        Instantiate(rain, new Vector3(600, 600, 400), Quaternion.identity);
+    }
+
+
     public void MovePlayer()
     {
         var randomSpawn = Random.Range(1, locations.Count);
