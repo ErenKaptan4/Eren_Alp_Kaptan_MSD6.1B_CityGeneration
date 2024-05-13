@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.40343264, g: 0.42427227, b: 0.42609283, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -209,14 +209,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997221037}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.026176924, y: 0, z: 0, w: 0.99965733}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 3, y: 0, z: 0}
 --- !u!1001 &1088672483
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -272,6 +272,22 @@ PrefabInstance:
     - target: {fileID: 4207293392497186, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490257326247362, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114497868231759342, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: jumpStrength
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963311885979670, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114963311885979670, guid: 11aaea5348574644a9eb4f4504fcce3f, type: 3}
+      propertyPath: runSpeed
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -446,23 +462,26 @@ MonoBehaviour:
   terrainTextureBlendOffset: 0.1
   treeData:
   - treeMesh: {fileID: 100000, guid: c91c1eb85782d5748ace27eb4d7415bb, type: 3}
-    minHeight: 0.4
+    minHeight: 0.5
     maxHeight: 0.6
   - treeMesh: {fileID: 100016, guid: 469edab27ab6d004d84af2c4a851bd7f, type: 3}
-    minHeight: 0.4
+    minHeight: 0.5
     maxHeight: 0.6
   - treeMesh: {fileID: 100004, guid: d027af1092f6b434090f040565e7e656, type: 3}
-    minHeight: 0.4
+    minHeight: 0.5
     maxHeight: 0.6
   - treeMesh: {fileID: 4119340359363394084, guid: 431e05c5e2b18ba4fa6b3b0a6f687786, type: 3}
-    minHeight: 0.4
-    maxHeight: 0.6
+    minHeight: 0.5
+    maxHeight: 0.55
+  - treeMesh: {fileID: 2121115777601418451, guid: e334e6614ad50f749b0a37528784c614, type: 3}
+    minHeight: 0.5
+    maxHeight: 0.55
   maxTrees: 8000
   treeSpacing: 10
   addTrees: 1
   terrainLayerIndex: 8
   water: {fileID: 100006, guid: 843740dbe549a4a6ba9556d1b80001f5, type: 3}
-  waterHeight: 0.25
+  waterHeight: 0.3
   cloud: {fileID: 1000010237739742, guid: fe69c79d384eb4f4f944d4ec253d357a, type: 3}
   rain: {fileID: 160098, guid: 69b40ef7ee16c834c844b3fa26e0fdda, type: 3}
   player: {fileID: 1234061082}

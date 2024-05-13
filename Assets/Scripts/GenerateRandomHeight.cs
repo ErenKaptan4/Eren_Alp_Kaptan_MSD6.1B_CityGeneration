@@ -65,6 +65,10 @@ public class GenerateRandomHeight : MonoBehaviour
     [Header("Player")][SerializeField] private GameObject player;
     List<Vector3> locations = new List<Vector3>()
     { 
+        new Vector3 (75,325,150),
+        new Vector3 (100,450,700),
+        new Vector3 (700,500,650),
+        new Vector3 (700,500,100)
 
     };
 
@@ -88,13 +92,8 @@ public class GenerateRandomHeight : MonoBehaviour
         AddWater();
         AddCloud();
         AddRain();
-        //MovePlayer();
+        MovePlayer();
 
-    }
-
-    private void Update()
-    {
-        //GenerateHeight();
     }
 
     private void GenerateHeight()
@@ -159,39 +158,54 @@ public class GenerateRandomHeight : MonoBehaviour
 
         terrainData.terrainLayers = terrainLayers;
 
-        float[,] heightMap = terrainData.GetHeights(0,0 , terrainData.heightmapResolution, terrainData.heightmapResolution);
+        // Get the height map data from the terrain
+        float[,] heightMap = terrainData.GetHeights(0, 0, terrainData.heightmapResolution, terrainData.heightmapResolution);
 
-        float[, ,] alphamapList = new float[terrainData.alphamapWidth, terrainData.alphamapHeight, terrainData.alphamapLayers];
-        
-        for(int height = 0; height < terrainData.alphamapHeight; height++)
+        // Create a 3D array to store the alpha map data
+        float[,,] alphaMapList = new float[terrainData.alphamapWidth, terrainData.alphamapHeight, terrainData.alphamapLayers];
+
+        // Iterate over each pixel in the alpha map
+        for (int height = 0; height < terrainData.alphamapHeight; height++)
         {
-            for(int width = 0; width < terrainData.alphamapWidth; width++)
+            for (int width = 0; width < terrainData.alphamapWidth; width++)
             {
-                float[] alphamap = new float[terrainData.alphamapLayers];
+                // Create a 1D array to store the alpha values for each texture layer
+                float[] alphaMap = new float[terrainData.alphamapLayers];
 
-                for (int i = 0; i < terrainTextureData.Count; i++)
+                // Check if the terrainTextureData list is not empty
+                if (terrainTextureData != null && terrainTextureData.Count > 0)
                 {
-                    float heightBegin = terrainTextureData[i].minHeight - terrainTextureBlendOffset;
-                    float heightEnd = terrainTextureData[i].maxHeight + terrainTextureBlendOffset;
-
-                    if (heightMap[width, height] >= heightBegin && heightMap[width, height] <= heightEnd)
+                    // Iterate over each texture in terrainTextureData
+                    for (int textureIndex = 0; textureIndex < terrainTextureData.Count; textureIndex++)
                     {
-                        alphamap[i] = 1;
+                        // Calculate the height range where the texture should be applied
+                        float heightBegin = terrainTextureData[textureIndex].minHeight - terrainTextureBlendOffset;
+                        float heightEnd = terrainTextureData[textureIndex].maxHeight + terrainTextureBlendOffset;
+
+                        // Check if the height of the current pixel is within the height range of the current texture
+                        if (heightMap[width, height] >= heightBegin && heightMap[width, height] <= heightEnd)
+                        {
+                            // Set the corresponding alpha value to 1
+                            alphaMap[textureIndex] = 1;
+                        }
                     }
 
+                    Blend(alphaMap);
                 }
 
-                Blend(alphamap); 
-
-                for(int j = 0; j < terrainTextureData.Count; j++)
+                // Check if the alphaMap array is not null
+                if (alphaMap != null)
                 {
-                    alphamapList[width,height,j] = alphamap[j];
+                    // Copy the alpha values from the alphaMap array to the alphaMapList array
+                    for (int layerIndex = 0; layerIndex < terrainData.alphamapLayers; layerIndex++)
+                    {
+                        alphaMapList[width, height, layerIndex] = alphaMap[layerIndex];
+                    }
                 }
-
             }
         }
 
-        terrainData.SetAlphamaps(0,0 , alphamapList);
+        terrainData.SetAlphamaps(0,0 , alphaMapList);
 
     }
 
@@ -241,7 +255,8 @@ public class GenerateRandomHeight : MonoBehaviour
                         {
 
                             float currentHeight = terrainData.GetHeight(x, z) / terrainData.size.y;
-
+                            
+                            //check if current height is in the range
                             if(currentHeight >= treeData[treeIndex].minHeight && currentHeight <= treeData[treeIndex].maxHeight)
                             {
 
@@ -256,6 +271,7 @@ public class GenerateRandomHeight : MonoBehaviour
 
                                 int layerMask = 1 << terrainLayerIndex;
 
+                                //raycast to position them correctly
                                 if (Physics.Raycast(treePosition, -Vector3.up, out raycastHit, 100, layerMask) ||
                                     Physics.Raycast(treePosition, Vector3.up, out raycastHit, 100, layerMask))
                                 {
@@ -298,7 +314,7 @@ public class GenerateRandomHeight : MonoBehaviour
         waterGameObject.name = "Water";
         waterGameObject.transform.position = this.transform.position + new Vector3(terrainData.size.x / 2,
             waterHeight * terrainData.size.y, terrainData.size.z / 2);
-        waterGameObject.transform.localScale = new Vector3(terrainData.size.x /2 , 1, terrainData.size.z / 2);
+        waterGameObject.transform.localScale = new Vector3(terrainData.size.x /50 , 1, terrainData.size.z / 50);
 
     }
 
