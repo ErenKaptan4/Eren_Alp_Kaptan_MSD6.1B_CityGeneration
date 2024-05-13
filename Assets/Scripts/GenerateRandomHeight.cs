@@ -96,6 +96,7 @@ public class GenerateRandomHeight : MonoBehaviour
 
     }
 
+    //function to use perlin noise or not
     private void GenerateHeight()
     {
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];
@@ -121,6 +122,7 @@ public class GenerateRandomHeight : MonoBehaviour
         terrainData.SetHeights(0, 0, heightMap);
     }
 
+    //flattens the terrain on destroy (when program stops)
     private void FlattenTerrain()
     {
         float[,] heightMap = new float[terrainData.heightmapResolution, terrainData.heightmapResolution];

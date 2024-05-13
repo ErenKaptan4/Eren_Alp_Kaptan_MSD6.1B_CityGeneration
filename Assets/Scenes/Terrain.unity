@@ -436,8 +436,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minRandomHeightRange: 0
-  maxRandomHeightRange: 0.01
-  flattenTerrain: 0
+  maxRandomHeightRange: 1
+  flattenTerrain: 1
   perlinNoise: 1
   perlinNoiseWidthScale: 0.004
   perlinNoiseHeightScale: 0.004

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+[RequireComponent(typeof(MeshCollider))]
 [RequireComponent(typeof(MeshFilter))]
 [RequireComponent(typeof(MeshRenderer))]
 public class cube3 : MonoBehaviour
@@ -43,6 +44,7 @@ public class cube3 : MonoBehaviour
     {
 
         CreateCube();
+        GetComponent<MeshCollider>().sharedMesh = MeshFilter.mesh;
 
     }
 

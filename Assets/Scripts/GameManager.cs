@@ -10,7 +10,7 @@ using static UnityEngine.GraphicsBuffer;
 public class GameManager : MonoBehaviour
 {
     //Ground
-    public GameObject groundGameObject;
+    private GameObject groundGameObject;
 
     //Roads
     GameObject road1GameObject;
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
 
 
     //House
-    public GameObject house1GameObject;
-    public GameObject house2GameObject;
+    private GameObject house1GameObject;
+    private GameObject house2GameObject;
 
 
 
@@ -92,8 +92,20 @@ public class GameManager : MonoBehaviour
         loc2.Shuffle();
         for (int i = 0; i < 5; i++)
         {
-            Instantiate(house1GameObject, loc[i], Quaternion.identity);
-            Instantiate(house2GameObject, loc2[i], Quaternion.identity);
+            //House 1
+            house1GameObject = new GameObject();
+            house1GameObject.name = "House1";
+            house1GameObject.transform.position = loc[i];
+            house1GameObject.AddComponent<Cube2>();
+            house1GameObject.transform.localScale = new Vector3(3,3,3);
+
+            //House 2
+            house2GameObject = new GameObject();
+            house2GameObject.name = "House2";
+            house2GameObject.transform.position = loc2[i];
+            house2GameObject.AddComponent<cube3>();
+            house2GameObject.transform.localScale = new Vector3(4, 4, 4);
+
         }
 
     }
@@ -115,7 +127,13 @@ public class GameManager : MonoBehaviour
 
     public void Ground()
     {
-        Instantiate(groundGameObject, new Vector3(0, 3.99f, 0), Quaternion.identity);
+        //Ground
+        house2GameObject = new GameObject();
+        house2GameObject.name = "Ground";
+        house2GameObject.transform.position = new Vector3(0, 3.99f, 0);
+        house2GameObject.AddComponent<Ground>();
+        house2GameObject.transform.localScale = new Vector3(500, 1, 500);
+
     }
 
 

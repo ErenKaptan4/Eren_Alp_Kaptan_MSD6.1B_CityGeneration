@@ -364,5 +364,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   groundGameObject: {fileID: 6138912375644067515, guid: fb7bc247fd1657d4cba490b37ed10666, type: 3}
   car: {fileID: 642287924342879162, guid: 79d0ca8b77e301442afdb49f102e8aed, type: 3}
-  house1GameObject: {fileID: 3887688164975362180, guid: 23eee2b7ad20f5843b17c7548128cb0c, type: 3}
-  house2GameObject: {fileID: 1259131622038918640, guid: 2eaef19b29a6ede4fb0c3bc0314231aa, type: 3}
