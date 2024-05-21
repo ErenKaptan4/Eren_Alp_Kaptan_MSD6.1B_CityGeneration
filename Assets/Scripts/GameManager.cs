@@ -28,8 +28,37 @@ public class GameManager : MonoBehaviour
     public GameObject car;
 
     //ChosenLocations
-    List<Vector3> locations = new List<Vector3>(5);
-    List<Vector3> locations2 = new List<Vector3>(5);
+    List<Vector3> locations = new List<Vector3>()
+    {
+        new Vector3(125, 8, 45),
+        new Vector3(125, 8, 70),
+        new Vector3(150, 8, 95),
+        new Vector3(175, 8, 95),
+        new Vector3(200, 8, 70),
+        new Vector3(200, 8, 45),
+        new Vector3(150, 8, 45),
+        new Vector3(150, 8, 70),
+        new Vector3(175, 8, 70),
+        new Vector3(175, 8, 45),
+        new Vector3(125, 8, 90),
+        new Vector3(200, 8, 90)
+
+
+
+    };
+
+    List<Vector3> locations2 = new List<Vector3>()
+    {
+        new Vector3(-33, 8, 125),
+        new Vector3(-10, 8, 100),
+        new Vector3(-33, 8, 75),
+        new Vector3(-10, 8, 50),
+        new Vector3(-33, 8, 25),
+        new Vector3(-10, 8, 0),
+        new Vector3(-33, 8, -25),
+        new Vector3(-10, 8, -50),
+        new Vector3(-33, 8, -75)
+    };
 
 
     //House
@@ -51,40 +80,11 @@ public class GameManager : MonoBehaviour
         RoadCorner3();
         Ground();
         SpawnCar();
-        ListMaker();
-        ListMaker2();
         HouseGenerator(locations, locations2);
 
     }
 
 
-    public void ListMaker()
-    {
-        locations.Add(new Vector3(125, 8, 45));
-        locations.Add(new Vector3(125, 8, 70));
-        locations.Add(new Vector3(150, 8, 95));
-        locations.Add(new Vector3(175, 8, 95));
-        locations.Add(new Vector3(200, 8, 70));
-        locations.Add(new Vector3(200, 8, 45));
-        locations.Add(new Vector3(150, 8, 45));
-        locations.Add(new Vector3(150, 8, 70));
-        locations.Add(new Vector3(175, 8, 70));
-        locations.Add(new Vector3(175, 8, 45));
-        locations.Add(new Vector3(125, 8, 90));
-        locations.Add(new Vector3(200, 8, 90));
-    }
-    public void ListMaker2()
-    {
-        locations2.Add(new Vector3(-33, 8, 125));
-        locations2.Add(new Vector3(-10, 8, 100));
-        locations2.Add(new Vector3(-33, 8, 75));
-        locations2.Add(new Vector3(-10, 8, 50));
-        locations2.Add(new Vector3(-33, 8, 25));
-        locations2.Add(new Vector3(-10, 8, 0));
-        locations2.Add(new Vector3(-33, 8, -25));
-        locations2.Add(new Vector3(-10, 8, -50));
-        locations2.Add(new Vector3(-33, 8, -75));
-    }
 
     public void HouseGenerator(List<Vector3> loc, List<Vector3> loc2)
     {
