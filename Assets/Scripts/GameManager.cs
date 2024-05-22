@@ -49,15 +49,15 @@ public class GameManager : MonoBehaviour
 
     List<Vector3> locations2 = new List<Vector3>()
     {
-        new Vector3(-33, 8, 125),
-        new Vector3(-10, 8, 100),
-        new Vector3(-33, 8, 75),
-        new Vector3(-10, 8, 50),
-        new Vector3(-33, 8, 25),
-        new Vector3(-10, 8, 0),
-        new Vector3(-33, 8, -25),
-        new Vector3(-10, 8, -50),
-        new Vector3(-33, 8, -75)
+        new Vector3(-33, 9, 125),
+        new Vector3(-10, 9, 100),
+        new Vector3(-33, 9, 75),
+        new Vector3(-10, 9, 50),
+        new Vector3(-33, 9, 25),
+        new Vector3(-10, 9, 0),
+        new Vector3(-33, 9, -25),
+        new Vector3(-10, 9, -50),
+        new Vector3(-33, 9, -75)
     };
 
 
